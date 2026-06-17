@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" version="24.0.0">
+  <diagram id="reading_system_arch" name="门外审堂学习系统架构">
+    <mxGraphModel dx="1554" dy="1400" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1400" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        
+        <mxCell id="lbl_client" value="客户端层" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="40" y="90" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_frontend" value="前端框架层" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="40" y="340" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_local" value="本地数据层" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="40" y="590" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_cloud" value="云端服务层" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="40" y="840" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_data" value="数据/AI层" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=14;fontStyle=1;fontColor=#333333;" parent="1" vertex="1">
+          <mxGeometry x="40" y="1090" width="120" height="40" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="layer_client" value="客户端层 (Client Layer) — Tauri 2.0 跨平台" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;verticalAlign=top;align=center;spacingTop=10;fontSize=14;fontStyle=1;dashed=1;dashPattern=8 4;" parent="1" vertex="1">
+          <mxGeometry x="240" y="50" width="1120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="win_app" value="🖥️ Windows 桌面端&lt;br&gt;Tauri + WebView2" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;" parent="layer_client" vertex="1">
+          <mxGeometry x="250" y="65" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ios_app" value="📱 iOS 移动端&lt;br&gt;Tauri + WKWebView" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;fontSize=12;" parent="layer_client" vertex="1">
+          <mxGeometry x="630" y="65" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="layer_frontend" value="前端框架层 (Frontend Layer) — React 18 + TypeScript" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;strokeWidth=2;verticalAlign=top;align=center;spacingTop=10;fontSize=14;fontStyle=1;dashed=1;dashPattern=8 4;" parent="1" vertex="1">
+          <mxGeometry x="240" y="300" width="1120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="ui_components" value="📖 UI 组件&lt;br&gt;Ant Design 5.x" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;" parent="layer_frontend" vertex="1">
+          <mxGeometry x="100" y="65" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="state_mgmt" value="⚙️ 状态管理&lt;br&gt;Zustand" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;" parent="layer_frontend" vertex="1">
+          <mxGeometry x="440" y="65" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="router" value="🔀 路由 &amp; 页面&lt;br&gt;React Router" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=12;" parent="layer_frontend" vertex="1">
+          <mxGeometry x="780" y="65" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="layer_local" value="本地数据层 (Local Storage) — 离线优先" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;verticalAlign=top;align=center;spacingTop=10;fontSize=14;fontStyle=1;dashed=1;dashPattern=8 4;" parent="1" vertex="1">
+          <mxGeometry x="240" y="550" width="1120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="sqlite" value="🗄️ SQLite&lt;br&gt;本地数据库" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;" parent="layer_local" vertex="1">
+          <mxGeometry x="100" y="55" width="240" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="sync_queue" value="🔄 同步队列&lt;br&gt;离线数据缓冲" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;" parent="layer_local" vertex="1">
+          <mxGeometry x="440" y="65" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cache" value="⚡ 缓存层&lt;br&gt;热数据缓存" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;fontSize=12;" parent="layer_local" vertex="1">
+          <mxGeometry x="780" y="65" width="240" height="80" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="layer_cloud" value="云端服务层 (Cloud Services) — Node.js + Express" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;verticalAlign=top;align=center;spacingTop=10;fontSize=14;fontStyle=1;dashed=1;dashPattern=8 4;" parent="1" vertex="1">
+          <mxGeometry x="240" y="800" width="1120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="api_gateway" value="🌐 API Gateway&lt;br&gt;REST + WebSocket" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" parent="layer_cloud" vertex="1">
+          <mxGeometry x="50" y="65" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="biz_service" value="📋 业务服务&lt;br&gt;计划/三件事/统计" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" parent="layer_cloud" vertex="1">
+          <mxGeometry x="320" y="65" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="sync_service" value="🔃 数据同步服务&lt;br&gt;CRDT 冲突处理" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" parent="layer_cloud" vertex="1">
+          <mxGeometry x="590" y="65" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ai_service" value="🤖 AI 对话服务&lt;br&gt;Coze API 对接" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=12;" parent="layer_cloud" vertex="1">
+          <mxGeometry x="860" y="65" width="220" height="80" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="layer_data" value="数据/AI层 (Data &amp; AI Layer)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;strokeWidth=2;verticalAlign=top;align=center;spacingTop=10;fontSize=14;fontStyle=1;dashed=1;dashPattern=8 4;" parent="1" vertex="1">
+          <mxGeometry x="240" y="1050" width="1120" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="supabase" value="🗃️ Supabase&lt;br&gt;PostgreSQL + Auth" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#b85450;fontSize=12;" parent="layer_data" vertex="1">
+          <mxGeometry x="100" y="55" width="240" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="coze_api" value="🎩 文渊先生&lt;br&gt;Coze Agent API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=12;" parent="layer_data" vertex="1">
+          <mxGeometry x="440" y="65" width="240" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="file_storage" value="📁 文件存储&lt;br&gt;笔记/导出文件" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffffff;strokeColor=#b85450;fontSize=12;" parent="layer_data" vertex="1">
+          <mxGeometry x="780" y="55" width="240" height="95" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="link_win_ui" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="win_app" target="ui_components" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="link_ios_ui" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#6c8ebf;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="ios_app" target="state_mgmt" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="link_ui_sqlite" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#d6b656;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="ui_components" target="sqlite" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="link_state_sync" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#d6b656;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="state_mgmt" target="sync_queue" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="link_sync_gateway" value="HTTPS / WebSocket" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#82b366;dashed=1;entryX=0.5;entryY=0;exitX=0.5;exitY=1;fontSize=10;fontColor=#82b366;" parent="1" source="sync_queue" target="api_gateway" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="link_gateway_biz" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#82b366;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="api_gateway" target="biz_service" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="link_gateway_sync" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#82b366;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="api_gateway" target="sync_service" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="link_gateway_ai" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#82b366;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="api_gateway" target="ai_service" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        
+        <mxCell id="link_biz_supabase" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="biz_service" target="supabase" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="link_ai_coze" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="ai_service" target="coze_api" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="link_sync_storage" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;strokeColor=#b85450;dashed=1;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" parent="1" source="sync_service" target="file_storage" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
