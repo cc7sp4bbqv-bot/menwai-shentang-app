@@ -66,13 +66,30 @@ jobs:
         with:
           args: ${{ matrix.args }}
 
-      - name: Ad-hoc sign macOS app
+      - name: Sign macOS app and rebuild DMG
         if: startsWith(matrix.platform, 'macos')
         run: |
           APP_PATH=$(find src-tauri/target/${{ matrix.target }}/release/bundle/macos -name "*.app" -maxdepth 1 | head -1)
-          echo "Signing: $APP_PATH"
+          DMG_DIR="src-tauri/target/${{ matrix.target }}/release/bundle/dmg"
+
+          echo "🔐 Ad-hoc signing: $APP_PATH"
           codesign --deep --force --options runtime --sign - "$APP_PATH"
-          codesign --verify --deep --strict "$APP_PATH" && echo "✅ Signature valid" || echo "⚠️ Signature verification failed"
+          codesign --verify --deep --strict "$APP_PATH" && echo "✅ Signature valid"
+
+          echo "📦 Rebuilding DM with signed app..."
+          rm -f "$DMG_DIR"/*.dmg
+          APP_NAME=$(basename "$APP_PATH" .app)
+          VOL_NAME="${APP_NAME}"
+          TEMP_DMG="/tmp/temp_dmg.dmg"
+
+          # Create temp read-only DMG
+          hdiutil create -volname "$VOL_NAME" -srcfolder "$APP_PATH" -ov -format UDRO "$TEMP_DMG"
+
+          # Convert to compressed DMG
+          hdiutil convert "$TEMP_DMG" -format UDZO -o "$DMG_DIR/${APP_NAME}.dmg"
+          rm -f "$TEMP_DMG"
+
+          echo "✅ DMG rebuilt: $(ls $DMG_DIR/*.dmg)"
 
       - name: Upload artifacts (macOS)
         if: startsWith(matrix.platform, 'macos')
