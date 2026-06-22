@@ -203,12 +203,24 @@ fn get_all_daily_progress(db: State<Database>) -> Result<String, String> {
 }
 
 fn main() {
-    let db_path = "menwai_shentang.db";
-    let conn = Connection::open(db_path).expect("Failed to open database");
-    
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
-        .manage(Database(Mutex::new(conn)))
+        .setup(|app| {
+            let app_data_dir = app.path()
+                .app_data_dir()
+                .expect("Failed to get app data directory");
+            
+            std::fs::create_dir_all(&app_data_dir)
+                .expect("Failed to create app data directory");
+            
+            let db_path = app_data_dir.join("menwai_shentang.db");
+            let conn = Connection::open(db_path)
+                .expect("Failed to open database");
+            
+            app.manage(Database(Mutex::new(conn)));
+            
+            Ok(())
+        })
         .invoke_handler(tauri::generate_handler![
             init_database,
             get_user_context,
