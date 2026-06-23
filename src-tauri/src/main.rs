@@ -2,7 +2,7 @@
 
 use rusqlite::{Connection, Result};
 use std::sync::Mutex;
-use tauri::State;
+use tauri::{Manager, State};
 
 struct Database(Mutex<Connection>);
 
